@@ -28,14 +28,14 @@
   body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background var(--transition),color var(--transition)}
   body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0;opacity:0.45;transition:opacity var(--transition)}
   [data-theme="light"] body::before{opacity:0.3}
-  body::after{content:'';position:fixed;top:-100%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.35;animation:scan 7s linear infinite;pointer-events:none;z-index:1}
+  body::after{content:'';position:fixed;top:-100%;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0.35;display:none;pointer-events:none;z-index:1}
   @keyframes scan{0%{top:-2px}100%{top:100%}}
   .wrapper{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:0 28px 64px}
 
   /* TOPBAR */
   .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 0 14px;border-bottom:1px solid var(--border);margin-bottom:40px;flex-wrap:wrap;gap:14px}
   .topbar-left{display:flex;align-items:center;gap:16px}
-  .irc-logo{height:46px;width:auto;display:block;filter:drop-shadow(0 0 8px rgba(0,180,210,0.3))}
+  .irc-logo{height:46px;width:auto;display:block;}
   .irc-logo{background:transparent;padding:0;display:block}
   [data-theme="dark"] .irc-logo{filter:brightness(1.8) saturate(1.2) drop-shadow(0 0 8px rgba(0,180,210,0.45))}
   [data-theme="light"] .irc-logo{filter:none}
@@ -58,7 +58,7 @@
   .hero-title{font-family:'Rajdhani',sans-serif;font-size:clamp(34px,6vw,62px);font-weight:700;letter-spacing:4px;line-height:1;text-transform:uppercase;background:linear-gradient(135deg,var(--accent) 0%,var(--accent2) 60%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 20px rgba(0,180,210,0.3));margin-bottom:10px}
   .hero-sub{font-size:13px;color:var(--text-dim);letter-spacing:1px;font-weight:300}
   .search-wrap{max-width:500px;margin:28px auto 0;position:relative}
-  .search-input{width:100%;background:var(--panel);border:1px solid var(--border-bright);border-radius:4px;padding:12px 48px 12px 18px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text);outline:none;letter-spacing:1px;transition:border-color var(--transition),box-shadow var(--transition);backdrop-filter:blur(12px)}
+  .search-input{width:100%;background:var(--panel);border:1px solid var(--border-bright);border-radius:4px;padding:12px 48px 12px 18px;font-family:'Share Tech Mono',monospace;font-size:13px;color:var(--text);outline:none;letter-spacing:1px;transition:border-color var(--transition),box-shadow var(--transition)}
   .search-input::placeholder{color:var(--text-muted)}
   .search-input:focus{border-color:var(--accent);box-shadow:var(--glow)}
   .search-icon{position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--text-dim);font-size:15px;pointer-events:none}
@@ -70,13 +70,13 @@
   /* CLINIC PILLS */
   .clinic-section{margin-bottom:42px}
   .clinic-pills{display:flex;flex-wrap:wrap;gap:10px}
-  .clinic-pill{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1.5px;padding:7px 18px;border:1px solid var(--border);border-radius:3px;background:var(--card-bg);color:var(--text-dim);cursor:pointer;transition:all var(--transition);text-transform:uppercase;backdrop-filter:blur(8px)}
+  .clinic-pill{font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1.5px;padding:7px 18px;border:1px solid var(--border);border-radius:3px;background:var(--card-bg);color:var(--text-dim);cursor:pointer;transition:all var(--transition);text-transform:uppercase}
   .clinic-pill:hover,.clinic-pill.active{border-color:var(--accent);color:var(--accent);background:var(--card-hover);box-shadow:var(--glow)}
 
   /* TOOL GRID */
   .tools-section{margin-bottom:52px}
   .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:22px}
-  .tool-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:26px;cursor:pointer;position:relative;overflow:hidden;transition:all var(--transition);backdrop-filter:blur(12px);text-decoration:none;display:block;animation:card-in 0.5s ease both}
+  .tool-card{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:26px;cursor:pointer;position:relative;overflow:hidden;transition:all var(--transition);text-decoration:none;display:block;animation:card-in 0.5s ease both}
   .tool-card:nth-child(1){animation-delay:0.05s}
   .tool-card:nth-child(2){animation-delay:0.10s}
   .tool-card:nth-child(3){animation-delay:0.15s}
@@ -110,7 +110,7 @@
 
   /* QUICK ACCESS */
   .quick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
-  .quick-card{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:12px;text-decoration:none;transition:all var(--transition);backdrop-filter:blur(8px)}
+  .quick-card{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:12px;text-decoration:none;transition:all var(--transition)}
   .quick-card:hover{border-color:var(--border-bright);background:var(--card-hover);box-shadow:var(--glow)}
   .quick-icon{font-size:19px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);border-radius:5px;background:var(--card-bg);flex-shrink:0}
   .quick-text-title{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;color:var(--text);text-transform:uppercase}
@@ -124,9 +124,9 @@
   @media(max-width:600px){.topbar{flex-direction:column;align-items:flex-start}.hero-title{font-size:30px}.tool-grid{grid-template-columns:1fr}}
 
   /* ── SETUP MODAL ── */
-  .setup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);animation:fadeIn 0.3s ease}
-  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  .setup-modal{background:var(--bg2);border:1px solid var(--border-bright);border-radius:8px;padding:40px;max-width:520px;width:90%;box-shadow:0 0 60px rgba(0,180,210,0.2),0 20px 60px rgba(0,0,0,0.6);animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1)}
+  .setup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;display:flex;align-items:center;justify-content:center}
+  
+  .setup-modal{background:var(--bg2);border:1px solid var(--border-bright);border-radius:8px;padding:40px;max-width:520px;width:90%;box-shadow:0 4px 24px rgba(0,0,0,0.6);animation:slideUp 0.35s cubic-bezier(0.4,0,0.2,1)}
   @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
   .setup-step{display:none}.setup-step.active{display:block}
   .setup-eyebrow{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
@@ -142,8 +142,8 @@
   .setup-clinic-inputs{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
   .setup-clinic-row{display:flex;align-items:center;gap:10px}
   .setup-clinic-row label{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;width:60px;flex-shrink:0}
-  .setup-input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:10px 14px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text);outline:none;letter-spacing:1px;transition:border-color 0.2s,box-shadow 0.2s}
-  .setup-input:focus{border-color:var(--accent);box-shadow:var(--glow)}
+  .setup-input{flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:10px 14px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--text);outline:none;letter-spacing:1px}
+  .setup-input:focus{border-color:var(--accent)}
   .setup-input::placeholder{color:var(--text-muted)}
   .setup-url-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;max-height:300px;overflow-y:auto}
   .setup-url-row{display:grid;grid-template-columns:90px 1fr 1fr;gap:8px;align-items:center}
@@ -504,7 +504,7 @@
     document.getElementById('step' + n).classList.add('active');
 
     if (n === 2) buildClinicInputs();
-    if (n === 3 && !document.getElementById('urlGrid').children.length) buildUrlGrid();
+    if (n === 3) buildUrlGrid();
   }
 
   function buildClinicInputs() {
@@ -533,22 +533,37 @@
   function buildUrlGrid() {
     const urls = config.urls || {};
     const grid = document.getElementById('urlGrid');
+    if (!grid) return;
 
-    let rows = TOOLS.map(t => `
-      <div style="border-bottom:1px solid var(--border);padding:10px 0">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-          <span>${t.icon}</span>
-          <div class="setup-url-label">${t.name}</div>
-          <div class="setup-url-hint">${t.full}</div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <input class="setup-input" id="url-${t.id}-launch" type="text" placeholder="Paste OneDrive share link..." value="${urls[t.id+'_launch']||''}"/>
-          <input class="setup-input" id="url-${t.id}-guide"  type="text" placeholder="Paste guide file link... (optional)"  value="${urls[t.id+'_guide']||''}"/>
-        </div>
-      </div>`).join('');
+    // Build rows without transitions or complex nesting
+    let html = '';
+    TOOLS.forEach(t => {
+      const launchVal = (urls[t.id + '_launch'] || '').replace(/"/g, '&quot;');
+      const guideVal  = (urls[t.id + '_guide']  || '').replace(/"/g, '&quot;');
+      html += '<div style="padding:10px 0;border-bottom:1px solid var(--border)">';
+      html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">';
+      html += '<span style="font-size:16px">' + t.icon + '</span>';
+      html += '<span style="font-weight:700;color:var(--text);font-size:13px">' + t.name + '</span>';
+      html += '<span style="color:var(--text2);font-size:11px">' + t.full + '</span>';
+      html += '</div>';
+      html += '<input class="setup-input" id="url-' + t.id + '-launch" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Paste OneDrive link for tool file..." value="' + launchVal + '" style="width:100%;margin-bottom:6px;display:block"/>';
+      html += '<input class="setup-input" id="url-' + t.id + '-guide"  type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Paste guide file link... (optional)" value="' + guideVal + '" style="width:100%;display:block"/>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
 
-
-    grid.innerHTML = rows;
+    // Attach paste handlers AFTER innerHTML is set
+    // Use capture + setTimeout to prevent Chrome freeze on long URLs
+    grid.querySelectorAll('input').forEach(function(inp) {
+      inp.addEventListener('paste', function(e) {
+        e.stopPropagation();
+        // Let the paste complete naturally then trim whitespace
+        var el = this;
+        setTimeout(function() {
+          el.value = el.value.trim();
+        }, 10);
+      }, true);
+    });
   }
 
   function saveConfig() {
