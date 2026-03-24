@@ -504,7 +504,7 @@
     document.getElementById('step' + n).classList.add('active');
 
     if (n === 2) buildClinicInputs();
-    if (n === 3) buildUrlGrid();
+    if (n === 3 && !document.getElementById('urlGrid').children.length) buildUrlGrid();
   }
 
   function buildClinicInputs() {
@@ -542,8 +542,8 @@
           <div class="setup-url-hint">${t.full}</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <input class="setup-input" id="url-${t.id}-launch" type="url" placeholder="Launch URL (SharePoint)" value="${urls[t.id+'_launch']||''}"/>
-          <input class="setup-input" id="url-${t.id}-guide"  type="url" placeholder="Guide URL (SharePoint)"  value="${urls[t.id+'_guide']||''}"/>
+          <input class="setup-input" id="url-${t.id}-launch" type="text" placeholder="Paste OneDrive share link..." value="${urls[t.id+'_launch']||''}"/>
+          <input class="setup-input" id="url-${t.id}-guide"  type="text" placeholder="Paste guide file link... (optional)"  value="${urls[t.id+'_guide']||''}"/>
         </div>
       </div>`).join('');
 
@@ -671,7 +671,7 @@
       </div>
       <div class="setup-eyebrow">// Tool Links //</div>
       <div class="setup-title">Link Your Tools</div>
-      <div class="setup-sub">Paste the SharePoint URLs for each tool and its user guide. Leave blank if not yet available.</div>
+      <div class="setup-sub">Paste the OneDrive share link for each tool file. Right-click the file in OneDrive → Share → Copy link. Leave blank if not yet ready.</div>
       <div class="setup-url-grid" id="urlGrid"></div>
       <div class="setup-btn-row">
         <button class="setup-btn" onclick="goStep(2)">← Back</button>
